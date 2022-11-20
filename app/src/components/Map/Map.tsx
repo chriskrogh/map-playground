@@ -1,38 +1,36 @@
 import React, { ReactElement, useEffect, useRef, useState } from "react";
 import { Status, Wrapper } from "@googlemaps/react-wrapper";
 import styled from "styled-components";
-import { BASE_MAP_CONFIG } from "./utils";
+import { BASE_MAP_CONFIG, getContinentConfig } from "./utils";
 import { MAP_STYLES } from "./styles";
-
-const NAM_CENTER = { lat: 37.967243, lng: -96.77155 };
-const EUR_CENTER = { lat: 48.856614, lng: 2.3522219 };
+import { Continent } from "./types";
 
 const GoogleMap: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const [focussedRegion, setFocussedRegion] = useState<"NAM" | "EUR">("NAM");
+  const [continent, setContinent] = useState<Continent>("NAM");
 
   useEffect(() => {
     if (typeof window !== "undefined" && ref.current) {
       const map = new window.google.maps.Map(ref.current, {
         ...BASE_MAP_CONFIG,
-        center: focussedRegion === "NAM" ? NAM_CENTER : EUR_CENTER,
+        ...getContinentConfig(continent),
         styles: MAP_STYLES,
       });
-      if (focussedRegion === "NAM") {
+      if (continent === "NAM") {
         new google.maps.KmlLayer({
-          url: `https://storage.googleapis.com/maps-playground-kmls/${focussedRegion}.kml`,
+          url: `https://storage.googleapis.com/maps-playground-kmls/${continent}.kml`,
           map,
         });
       }
     }
-  }, [focussedRegion]);
+  }, [continent]);
 
   return (
     <div>
       <StyledMap id="map" {...{ ref }} />;
       <ButtonContainer>
-        <Button onClick={() => setFocussedRegion("NAM")}>NAM</Button>
-        <Button onClick={() => setFocussedRegion("EUR")}>EUR</Button>
+        <Button onClick={() => setContinent("NAM")}>NAM</Button>
+        <Button onClick={() => setContinent("EUR")}>EUR</Button>
       </ButtonContainer>
     </div>
   );

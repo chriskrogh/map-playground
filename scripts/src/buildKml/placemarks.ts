@@ -1,3 +1,4 @@
+import { CANADIAN_REGION_INFO } from "./regions/can";
 import { EUROPEAN_REGION_INFO } from "./regions/europe";
 import { US_REGION_INFO } from "./regions/us";
 import { Continent, Polygon, RegionInfo } from "./types";
@@ -35,9 +36,13 @@ const getPlacemark = (key: string, regionInfo: RegionInfo) => {
 export const getPlacemarks = (continent: Continent) => {
   switch (continent) {
     case "NAM":
-      return Object.entries(US_REGION_INFO).map(([key, regionInfo]) =>
-        getPlacemark(key, regionInfo)
+      const USPlacemarks = Object.entries(US_REGION_INFO).map(
+        ([key, regionInfo]) => getPlacemark(key, regionInfo)
       );
+      const CanadianPlacemarks = Object.entries(CANADIAN_REGION_INFO).map(
+        ([key, regionInfo]) => getPlacemark(key, regionInfo)
+      );
+      return [...USPlacemarks, ...CanadianPlacemarks];
     case "EUR":
       return Object.entries(EUROPEAN_REGION_INFO).map(([key, regionInfo]) =>
         getPlacemark(key, regionInfo)

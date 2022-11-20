@@ -1,3 +1,4 @@
+import { CANADIAN_REGION_INFO } from "./regions/can";
 import { EUROPEAN_REGION_INFO } from "./regions/europe";
 import { US_REGION_INFO } from "./regions/us";
 import { Continent } from "./types";
@@ -35,9 +36,13 @@ const getStyle = (key: string, retailerCount: number) => {
 export const getStyles = (continent: Continent) => {
   switch (continent) {
     case "NAM":
-      return Object.entries(US_REGION_INFO).map(([key, { retailerCount }]) =>
-        getStyle(key, retailerCount)
+      const USStyles = Object.entries(US_REGION_INFO).map(
+        ([key, { retailerCount }]) => getStyle(key, retailerCount)
       );
+      const CanadianStyles = Object.entries(CANADIAN_REGION_INFO).map(
+        ([key, { retailerCount }]) => getStyle(key, retailerCount)
+      );
+      return [...USStyles, ...CanadianStyles];
     case "EUR":
       return Object.entries(EUROPEAN_REGION_INFO).map(
         ([key, { retailerCount }]) => getStyle(key, retailerCount)
