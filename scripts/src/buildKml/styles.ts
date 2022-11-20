@@ -1,5 +1,6 @@
 import { EUROPEAN_REGION_INFO } from "./regions/europe";
 import { US_REGION_INFO } from "./regions/us";
+import { Continent } from "./types";
 
 const getRegionColor = (retailerCount: number) => {
   if (retailerCount <= 500) {
@@ -31,12 +32,15 @@ const getStyle = (key: string, retailerCount: number) => {
   `;
 };
 
-export const getStyles = () => {
-  const USStyles = Object.entries(US_REGION_INFO).map(
-    ([key, { retailerCount }]) => getStyle(key, retailerCount)
-  );
-  const EuropeStyles = Object.entries(EUROPEAN_REGION_INFO).map(
-    ([key, { retailerCount }]) => getStyle(key, retailerCount)
-  );
-  return [...USStyles, ...EuropeStyles];
+export const getStyles = (continent: Continent) => {
+  switch (continent) {
+    case "NAM":
+      return Object.entries(US_REGION_INFO).map(([key, { retailerCount }]) =>
+        getStyle(key, retailerCount)
+      );
+    case "EUR":
+      return Object.entries(EUROPEAN_REGION_INFO).map(
+        ([key, { retailerCount }]) => getStyle(key, retailerCount)
+      );
+  }
 };

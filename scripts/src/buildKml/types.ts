@@ -9,3 +9,5 @@ export type RegionInfo = {
   retailerCount: number;
   polygons: Polygon[];
 };
+
+export type Continent = "NAM" | "EUR";

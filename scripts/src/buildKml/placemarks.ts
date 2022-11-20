@@ -1,6 +1,6 @@
 import { EUROPEAN_REGION_INFO } from "./regions/europe";
 import { US_REGION_INFO } from "./regions/us";
-import { Polygon, RegionInfo } from "./types";
+import { Continent, Polygon, RegionInfo } from "./types";
 
 const getPolygon = ({ coordinates }: Polygon) => {
   return `
@@ -32,12 +32,15 @@ const getPlacemark = (key: string, regionInfo: RegionInfo) => {
   `;
 };
 
-export const getPlacemarks = () => {
-  const USPlacemarks = Object.entries(US_REGION_INFO).map(([key, regionInfo]) =>
-    getPlacemark(key, regionInfo)
-  );
-  const EuropePlacemarks = Object.entries(EUROPEAN_REGION_INFO).map(
-    ([key, regionInfo]) => getPlacemark(key, regionInfo)
-  );
-  return [...USPlacemarks, ...EuropePlacemarks];
+export const getPlacemarks = (continent: Continent) => {
+  switch (continent) {
+    case "NAM":
+      return Object.entries(US_REGION_INFO).map(([key, regionInfo]) =>
+        getPlacemark(key, regionInfo)
+      );
+    case "EUR":
+      return Object.entries(EUROPEAN_REGION_INFO).map(([key, regionInfo]) =>
+        getPlacemark(key, regionInfo)
+      );
+  }
 };
