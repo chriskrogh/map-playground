@@ -1,5 +1,6 @@
 import Head from "next/head";
 import styled from "styled-components";
+import { Map } from "../src/components/Map";
 
 const Home: React.FC = () => {
   return (
@@ -10,7 +11,7 @@ const Home: React.FC = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container>
-        <h1>Hello World</h1>
+        <Map />
       </Container>
     </>
   );
@@ -18,7 +19,9 @@ const Home: React.FC = () => {
 
 const Container = styled.div`
   width: 100%;
-  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default Home;
