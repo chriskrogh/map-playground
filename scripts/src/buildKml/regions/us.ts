@@ -208,7 +208,7 @@ export const US_REGION_INFO: Record<typeof US_STATE_KEYS[number], RegionInfo> =
     },
     US_AZ: {
       name: "Arizona",
-      retailerCount: 450,
+      retailerCount: 1500,
       polygons: [
         {
           coordinates: [
@@ -718,7 +718,7 @@ export const US_REGION_INFO: Record<typeof US_STATE_KEYS[number], RegionInfo> =
     },
     US_CA: {
       name: "California",
-      retailerCount: 450,
+      retailerCount: 2500,
       polygons: [
         {
           coordinates: [
@@ -1185,7 +1185,7 @@ export const US_REGION_INFO: Record<typeof US_STATE_KEYS[number], RegionInfo> =
     },
     US_FL: {
       name: "Florida",
-      retailerCount: 450,
+      retailerCount: 1500,
       polygons: [
         {
           coordinates: [
@@ -3688,7 +3688,7 @@ export const US_REGION_INFO: Record<typeof US_STATE_KEYS[number], RegionInfo> =
     },
     US_LA: {
       name: "Louisiana",
-      retailerCount: 450,
+      retailerCount: 1500,
       polygons: [
         {
           coordinates: [
@@ -4431,7 +4431,7 @@ export const US_REGION_INFO: Record<typeof US_STATE_KEYS[number], RegionInfo> =
     },
     US_MD: {
       name: "Maryland",
-      retailerCount: 450,
+      retailerCount: 2500,
       polygons: [
         {
           coordinates: [
@@ -4721,7 +4721,7 @@ export const US_REGION_INFO: Record<typeof US_STATE_KEYS[number], RegionInfo> =
     },
     US_MA: {
       name: "Massachusetts",
-      retailerCount: 450,
+      retailerCount: 2500,
       polygons: [
         {
           coordinates: [
@@ -4856,7 +4856,7 @@ export const US_REGION_INFO: Record<typeof US_STATE_KEYS[number], RegionInfo> =
     },
     US_MI: {
       name: "Michigan",
-      retailerCount: 450,
+      retailerCount: 1500,
       polygons: [
         {
           coordinates: [
@@ -6818,7 +6818,7 @@ export const US_REGION_INFO: Record<typeof US_STATE_KEYS[number], RegionInfo> =
     },
     US_NV: {
       name: "Nevada",
-      retailerCount: 450,
+      retailerCount: 1500,
       polygons: [
         {
           coordinates: [
@@ -7181,7 +7181,7 @@ export const US_REGION_INFO: Record<typeof US_STATE_KEYS[number], RegionInfo> =
     },
     US_NM: {
       name: "New Mexico",
-      retailerCount: 450,
+      retailerCount: 1500,
       polygons: [
         {
           coordinates: [
@@ -7249,7 +7249,7 @@ export const US_REGION_INFO: Record<typeof US_STATE_KEYS[number], RegionInfo> =
     },
     US_NY: {
       name: "New York",
-      retailerCount: 450,
+      retailerCount: 2500,
       polygons: [
         {
           coordinates: [
@@ -8531,7 +8531,7 @@ export const US_REGION_INFO: Record<typeof US_STATE_KEYS[number], RegionInfo> =
     },
     US_OR: {
       name: "Oregon",
-      retailerCount: 450,
+      retailerCount: 2500,
       polygons: [
         {
           coordinates: [
@@ -8740,7 +8740,7 @@ export const US_REGION_INFO: Record<typeof US_STATE_KEYS[number], RegionInfo> =
     },
     US_PA: {
       name: "Pennsylvania",
-      retailerCount: 450,
+      retailerCount: 2500,
       polygons: [
         {
           coordinates: [
@@ -9640,7 +9640,7 @@ export const US_REGION_INFO: Record<typeof US_STATE_KEYS[number], RegionInfo> =
     },
     US_TX: {
       name: "Texas",
-      retailerCount: 450,
+      retailerCount: 2500,
       polygons: [
         {
           coordinates: [
@@ -11132,7 +11132,7 @@ export const US_REGION_INFO: Record<typeof US_STATE_KEYS[number], RegionInfo> =
     },
     US_WA: {
       name: "Washington",
-      retailerCount: 450,
+      retailerCount: 2500,
       polygons: [
         {
           coordinates: [

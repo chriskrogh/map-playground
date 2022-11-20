@@ -1,23 +1,6 @@
 export const MAP_STYLES: google.maps.MapTypeStyle[] = [
   {
     featureType: "administrative",
-    elementType: "geometry",
-    stylers: [
-      {
-        visibility: "off",
-      },
-    ],
-  },
-  {
-    featureType: "administrative.land_parcel",
-    stylers: [
-      {
-        visibility: "off",
-      },
-    ],
-  },
-  {
-    featureType: "administrative.neighborhood",
     stylers: [
       {
         visibility: "off",
@@ -29,7 +12,7 @@ export const MAP_STYLES: google.maps.MapTypeStyle[] = [
     elementType: "geometry",
     stylers: [
       {
-        color: "#d9d8cd",
+        color: "#ffffff",
       },
     ],
   },
