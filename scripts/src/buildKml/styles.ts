@@ -15,6 +15,13 @@ const getStyle = (key: string, retailerCount: number) => {
   const color = getRegionColor(retailerCount);
   return `
     <Style id="${key}">
+      <IconStyle>
+        <scale>0</scale>
+      </IconStyle>
+      <LineStyle>
+        <color>ff333333</color>
+        <width>1</width>
+      </LineStyle>
       <PolyStyle>
         <color>${color}</color>
         <fill>1</fill>

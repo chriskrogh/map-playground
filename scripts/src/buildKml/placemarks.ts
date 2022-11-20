@@ -1,4 +1,3 @@
-import { BASE_STYLE_KEY } from "./consts";
 import { EUROPEAN_REGION_INFO } from "./regions/europe";
 import { US_REGION_INFO } from "./regions/us";
 import { Polygon, RegionInfo } from "./types";
@@ -25,10 +24,9 @@ const getPlacemark = (key: string, regionInfo: RegionInfo) => {
       <name>
         <![CDATA[${name}]]>
       </name>
-      <styleUrl>#${BASE_STYLE_KEY}</styleUrl>
       <styleUrl>#${key}</styleUrl>
       <MultiGeometry>
-        ${polygons.map(getPolygon).join("\n")}
+        ${polygons.map(getPolygon).join("")}
       </MultiGeometry>
     </Placemark>
   `;
