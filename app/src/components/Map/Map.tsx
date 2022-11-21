@@ -19,6 +19,7 @@ const GoogleMap: React.FC = () => {
       if (continent === "NAM") {
         new google.maps.KmlLayer({
           url: `https://storage.googleapis.com/maps-playground-kmls/${continent}.kml`,
+          preserveViewport: true,
           map,
         });
       }
@@ -27,7 +28,7 @@ const GoogleMap: React.FC = () => {
 
   return (
     <div>
-      <StyledMap id="map" {...{ ref }} />;
+      <StyledMap id="map" {...{ ref }} />
       <ButtonContainer>
         <Button onClick={() => setContinent("NAM")}>NAM</Button>
         <Button onClick={() => setContinent("EUR")}>EUR</Button>
