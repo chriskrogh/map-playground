@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styled from "styled-components";
-import { Map } from "../src/components/Map";
+import { GoogleMap } from "../src/components/GoogleMap";
 
 const Home: React.FC = () => {
   return (
@@ -11,7 +11,7 @@ const Home: React.FC = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container>
-        <Map />
+        <GoogleMap />
       </Container>
     </>
   );

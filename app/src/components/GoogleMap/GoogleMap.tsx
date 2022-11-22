@@ -5,7 +5,7 @@ import { BASE_MAP_CONFIG, getContinentConfig } from "./utils";
 import { MAP_STYLES } from "./styles";
 import { Continent } from "./types";
 
-const GoogleMap: React.FC = () => {
+const Map: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [continent, setContinent] = useState<Continent>("NAM");
 
@@ -44,11 +44,11 @@ const MapHandler = (status: Status): ReactElement => {
     case Status.FAILURE:
       return <p>Failed to load Google Maps</p>;
     case Status.SUCCESS:
-      return <GoogleMap />;
+      return <Map />;
   }
 };
 
-export const Map: React.FC = () => (
+export const GoogleMap: React.FC = () => (
   <Wrapper
     apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? ""}
     render={MapHandler}
