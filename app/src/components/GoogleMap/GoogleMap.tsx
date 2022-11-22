@@ -8,6 +8,7 @@ import { Continent } from "./types";
 const Map: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [continent, setContinent] = useState<Continent>("NAM");
+  const [name, setName] = useState<string>();
 
   useEffect(() => {
     if (typeof window !== "undefined" && ref.current) {
@@ -17,10 +18,14 @@ const Map: React.FC = () => {
         styles: MAP_STYLES,
       });
       if (continent === "NAM") {
-        new google.maps.KmlLayer({
-          url: `https://storage.googleapis.com/maps-playground-kmls/${continent}.kml`,
+        const kmlLayer = new google.maps.KmlLayer({
+          url: `https://storage.googleapis.com/maps-playground-kmls/${continent}.kml?${Date.now()}`,
           preserveViewport: true,
+          suppressInfoWindows: true,
           map,
+        });
+        kmlLayer.addListener("click", (event: any) => {
+          setName(event.featureData.name);
         });
       }
     }
@@ -29,6 +34,7 @@ const Map: React.FC = () => {
   return (
     <div>
       <StyledMap id="map" {...{ ref }} />
+      {name ? <p>{name}</p> : null}
       <ButtonContainer>
         <Button onClick={() => setContinent("NAM")}>NAM</Button>
         <Button onClick={() => setContinent("EUR")}>EUR</Button>
