@@ -1,13 +1,10 @@
-type Coordinate = [number, number];
-
-export type Polygon = {
-  coordinates: Coordinate[];
-};
+export type Coordinate = { lat: number; lng: number };
 
 export type RegionInfo = {
   name: string;
   retailerCount: number;
-  polygons: Polygon[];
+  midpoint: Coordinate;
+  polygons: Coordinate[][];
 };
 
 export type Continent = "NAM" | "EUR";
