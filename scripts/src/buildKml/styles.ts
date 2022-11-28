@@ -1,7 +1,7 @@
 import { CANADIAN_REGION_INFO } from "./regions/can";
 import { EUROPEAN_REGION_INFO } from "./regions/europe";
 import { US_REGION_INFO } from "./regions/us";
-import { Continent } from "./types";
+import { Continent } from "../types";
 
 const getRegionColor = (retailerCount: number) => {
   if (retailerCount <= 500) {

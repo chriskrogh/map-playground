@@ -1,7 +1,7 @@
 import { CANADIAN_REGION_INFO } from "./regions/can";
 import { EUROPEAN_REGION_INFO } from "./regions/europe";
 import { US_REGION_INFO } from "./regions/us";
-import { Continent, Coordinate, RegionInfo } from "./types";
+import { Continent, Coordinate, RegionInfo } from "../types";
 
 const getPolygon = (coordinates: Coordinate[]) => {
   return `

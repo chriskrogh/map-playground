@@ -1,4 +1,4 @@
-import { RegionInfo } from "../types";
+import { RegionInfo } from "../../types";
 
 const US_STATE_KEYS = [
   "US_AL",

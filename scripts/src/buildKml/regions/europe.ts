@@ -1,4 +1,4 @@
-import { RegionInfo } from "../types";
+import { RegionInfo } from "../../types";
 
 const EUROPEAN_COUNTRY_KEYS = [
   "EU_AX",

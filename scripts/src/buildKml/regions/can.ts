@@ -1,4 +1,4 @@
-import { RegionInfo } from "../types";
+import { RegionInfo } from "../../types";
 
 export const CANDADIAN_PROVINCES_AND_TERRITORIES = [
   "CA_AB",
