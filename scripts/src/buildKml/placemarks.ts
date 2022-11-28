@@ -1,16 +1,16 @@
 import { CANADIAN_REGION_INFO } from "./regions/can";
 import { EUROPEAN_REGION_INFO } from "./regions/europe";
 import { US_REGION_INFO } from "./regions/us";
-import { Continent, Polygon, RegionInfo } from "./types";
+import { Continent, Coordinate, RegionInfo } from "./types";
 
-const getPolygon = ({ coordinates }: Polygon) => {
+const getPolygon = (coordinates: Coordinate[]) => {
   return `
     <Polygon>
       <altitudeMode>clampToGround</altitudeMode>
       <outerBoundaryIs>
         <LinearRing>
           <coordinates>
-            ${coordinates.map((coordinate) => coordinate.join(",")).join("\n")}
+            ${coordinates.map(({ lat, lng }) => `${lng},${lat}`).join("\n")}
           </coordinates>
         </LinearRing>
       </outerBoundaryIs>
