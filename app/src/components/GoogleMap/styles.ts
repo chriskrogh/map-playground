@@ -8,15 +8,6 @@ export const MAP_STYLES: google.maps.MapTypeStyle[] = [
     ],
   },
   {
-    featureType: "landscape",
-    elementType: "geometry",
-    stylers: [
-      {
-        color: "#ffffff",
-      },
-    ],
-  },
-  {
     featureType: "poi",
     stylers: [
       {
@@ -25,34 +16,7 @@ export const MAP_STYLES: google.maps.MapTypeStyle[] = [
     ],
   },
   {
-    featureType: "poi",
-    elementType: "labels.text",
-    stylers: [
-      {
-        visibility: "off",
-      },
-    ],
-  },
-  {
     featureType: "road",
-    stylers: [
-      {
-        visibility: "off",
-      },
-    ],
-  },
-  {
-    featureType: "road",
-    elementType: "labels",
-    stylers: [
-      {
-        visibility: "off",
-      },
-    ],
-  },
-  {
-    featureType: "road",
-    elementType: "labels.icon",
     stylers: [
       {
         visibility: "off",
@@ -64,6 +28,15 @@ export const MAP_STYLES: google.maps.MapTypeStyle[] = [
     stylers: [
       {
         visibility: "off",
+      },
+    ],
+  },
+  {
+    featureType: "landscape",
+    elementType: "geometry",
+    stylers: [
+      {
+        color: "#ffffff",
       },
     ],
   },

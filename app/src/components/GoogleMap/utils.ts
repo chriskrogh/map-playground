@@ -32,3 +32,15 @@ export const getContinentConfig = (
       };
   }
 };
+
+export const getRegionColor = (retailerCount: number) => {
+  if (retailerCount <= 500) {
+    return "#F4F3EB";
+  } else if (retailerCount <= 1000) {
+    return "#D9D8CD";
+  } else if (retailerCount <= 5000) {
+    return "#C8CBBA";
+  } else {
+    return "#91957B";
+  }
+};

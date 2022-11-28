@@ -1,40 +1,22 @@
 import React, { ReactElement, useEffect, useRef, useState } from "react";
 import { Status, Wrapper } from "@googlemaps/react-wrapper";
 import styled from "styled-components";
-import { BASE_MAP_CONFIG, getContinentConfig } from "./utils";
-import { MAP_STYLES } from "./styles";
 import { Continent } from "./types";
+import { HeatMap } from "./HeatMap";
 
 const Map: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [continent, setContinent] = useState<Continent>("NAM");
-  const [name, setName] = useState<string>();
 
   useEffect(() => {
     if (typeof window !== "undefined" && ref.current) {
-      const map = new window.google.maps.Map(ref.current, {
-        ...BASE_MAP_CONFIG,
-        ...getContinentConfig(continent),
-        styles: MAP_STYLES,
-      });
-      if (continent === "NAM") {
-        const kmlLayer = new google.maps.KmlLayer({
-          url: `https://storage.googleapis.com/maps-playground-kmls/${continent}.kml?${Date.now()}`,
-          preserveViewport: true,
-          suppressInfoWindows: true,
-          map,
-        });
-        kmlLayer.addListener("click", (event: any) => {
-          setName(event.featureData.name);
-        });
-      }
+      new HeatMap(continent, ref.current);
     }
   }, [continent]);
 
   return (
     <div>
       <StyledMap id="map" {...{ ref }} />
-      {name ? <p>{name}</p> : null}
       <ButtonContainer>
         <Button onClick={() => setContinent("NAM")}>NAM</Button>
         <Button onClick={() => setContinent("EUR")}>EUR</Button>
