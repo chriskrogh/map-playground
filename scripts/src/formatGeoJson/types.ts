@@ -2,7 +2,7 @@ export type Coordinate = { lat: number; lng: number };
 
 export type RegionInfo = {
   name: string;
-  retailerCount: number;
+  key: string;
   midpoint: Coordinate;
   polygons: Coordinate[][];
 };

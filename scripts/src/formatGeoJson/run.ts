@@ -20,7 +20,4 @@ const continent = _continent as Continent;
 const data =
   continent === "NAM" ? buildNorthAmericaRegionInfo() : buildEuropeRegionInfo();
 
-writeFileSync(
-  `../app/src/components/GoogleMap/res/${continent}.json`,
-  JSON.stringify(data, null, 2)
-);
+writeFileSync(`build/${continent}.json`, JSON.stringify(data, null, 2));
