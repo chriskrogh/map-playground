@@ -1,11 +1,10 @@
 import React from "react";
 import ReactDOMServer from "react-dom/server";
 import { InfoWindow } from "./InfoWindow";
-import NAM from "./res/NAM.json";
-import EUR from "./res/EUR.json";
 import { MAP_STYLES } from "./styles";
 import { Continent, Coordinate, RegionInfo } from "./types";
 import { BASE_MAP_CONFIG, getContinentConfig, getRegionColor } from "./utils";
+import { EUR_RETAILER_COUNTS, NAM_RETAILER_COUNTS } from "./consts";
 
 export class HeatMap {
   private map: google.maps.Map;
@@ -19,26 +18,47 @@ export class HeatMap {
     this.paintRegions(continent);
   }
 
-  private paintRegions = (continent: Continent) => {
+  private paintRegions = async (continent: Continent) => {
     switch (continent) {
-      case "NAM":
-        (NAM as RegionInfo[]).forEach(
-          ({ name, retailerCount, polygons, midpoint }) => {
-            polygons.forEach((polygon) =>
-              this.setPolygon(polygon, midpoint, retailerCount, name)
-            );
-          }
-        );
+      case "NAM": {
+        const regionInfo = await this.fetchRegionInfo("NAM");
+        regionInfo?.forEach(({ name, key, polygons, midpoint }) => {
+          polygons.forEach((polygon) =>
+            this.setPolygon(
+              polygon,
+              midpoint,
+              NAM_RETAILER_COUNTS[key as keyof typeof NAM_RETAILER_COUNTS],
+              name
+            )
+          );
+        });
         break;
-      case "EUR":
-        (EUR as RegionInfo[]).forEach(
-          ({ name, retailerCount, polygons, midpoint }) => {
-            polygons.forEach((polygon) =>
-              this.setPolygon(polygon, midpoint, retailerCount, name)
-            );
-          }
-        );
+      }
+      case "EUR": {
+        const regionInfo = await this.fetchRegionInfo("EUR");
+        regionInfo?.forEach(({ name, key, polygons, midpoint }) => {
+          polygons.forEach((polygon) =>
+            this.setPolygon(
+              polygon,
+              midpoint,
+              EUR_RETAILER_COUNTS[key as keyof typeof EUR_RETAILER_COUNTS],
+              name
+            )
+          );
+        });
         break;
+      }
+    }
+  };
+
+  private fetchRegionInfo = async (continent: Continent) => {
+    try {
+      const response = await fetch(
+        `https://storage.googleapis.com/maps-playground-kmls/${continent}.json`
+      );
+      return (await response.json()) as RegionInfo[];
+    } catch (error) {
+      console.error(error);
     }
   };
 
