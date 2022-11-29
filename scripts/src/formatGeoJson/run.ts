@@ -1,5 +1,5 @@
 import { writeFileSync } from "fs";
-import { Continent } from "../types";
+import { Continent } from "./types";
 import {
   buildNorthAmericaRegionInfo,
   buildEuropeRegionInfo,

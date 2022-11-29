@@ -31,11 +31,13 @@ export class HeatMap {
         );
         break;
       case "EUR":
-        EUR.forEach(({ name, retailerCount, polygons, midpoint }) => {
-          polygons.forEach((polygon) =>
-            this.setPolygon(polygon, midpoint, retailerCount, name)
-          );
-        });
+        (EUR as RegionInfo[]).forEach(
+          ({ name, retailerCount, polygons, midpoint }) => {
+            polygons.forEach((polygon) =>
+              this.setPolygon(polygon, midpoint, retailerCount, name)
+            );
+          }
+        );
         break;
     }
   };

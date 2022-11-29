@@ -1,4 +1,4 @@
-import { Coordinate } from "../types";
+import { Coordinate } from "./types";
 
 function getMiddle(prop: "lat" | "lng", coordinates: Coordinate[]) {
   let values = coordinates.map((m) => m[prop]);

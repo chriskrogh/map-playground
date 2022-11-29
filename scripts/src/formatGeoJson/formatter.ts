@@ -2,7 +2,7 @@ import flatten from "lodash/flatten";
 import CanadaJson from "./res/canada.geo.json";
 import CountriesJson from "./res/countries.geo.json";
 import UsJson from "./res/us.geo.json";
-import { Coordinate, RegionInfo } from "../types";
+import { Coordinate, RegionInfo } from "./types";
 import { findMidpoint } from "./utils";
 import { EUR_COUNTRY_CODES } from "./regions";
 
