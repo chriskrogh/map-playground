@@ -1,4 +1,4 @@
-import { Continent } from "./types";
+import { Continent } from "../types";
 
 export const BASE_MAP_CONFIG: google.maps.MapOptions = {
   zoom: 4,

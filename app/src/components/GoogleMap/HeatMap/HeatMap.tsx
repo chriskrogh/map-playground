@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOMServer from "react-dom/server";
 import { InfoWindow } from "./InfoWindow";
 import { MAP_STYLES } from "./styles";
-import { Continent, Coordinate, RegionInfo } from "./types";
+import { Continent, Coordinate, RegionInfo } from "../types";
 import { BASE_MAP_CONFIG, getContinentConfig, getRegionColor } from "./utils";
 import { EUR_RETAILER_COUNTS, NAM_RETAILER_COUNTS } from "./consts";
 

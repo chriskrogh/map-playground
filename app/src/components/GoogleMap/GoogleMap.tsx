@@ -1,8 +1,9 @@
 import React, { ReactElement, useEffect, useRef, useState } from "react";
 import { Status, Wrapper } from "@googlemaps/react-wrapper";
 import styled from "styled-components";
-import { Continent } from "./types";
+
 import { HeatMap } from "./HeatMap";
+import { Continent } from "./types";
 
 const Map: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
