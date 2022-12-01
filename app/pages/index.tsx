@@ -11,7 +11,7 @@ const Home: React.FC = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container>
-        <GoogleMap />
+        <GoogleMap category="apparel" />
       </Container>
     </>
   );
