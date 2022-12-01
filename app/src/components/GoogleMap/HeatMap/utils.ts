@@ -19,7 +19,7 @@ export const getContinentConfig = (
         restriction: {
           latLngBounds: {
             north: 60,
-            south: 20,
+            south: 12,
             east: -50,
             west: -140,
           },
@@ -28,7 +28,14 @@ export const getContinentConfig = (
     case "EUR":
       return {
         center: { lat: 48.856614, lng: 2.3522219 },
-        zoom: 5,
+        restriction: {
+          latLngBounds: {
+            north: 72,
+            south: 20,
+            east: 50,
+            west: -26,
+          },
+        },
       };
   }
 };

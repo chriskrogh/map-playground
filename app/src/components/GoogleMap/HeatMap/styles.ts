@@ -36,7 +36,7 @@ export const MAP_STYLES: google.maps.MapTypeStyle[] = [
     elementType: "geometry",
     stylers: [
       {
-        color: "#ffffff",
+        color: "#f4f3eb",
       },
     ],
   },
@@ -45,7 +45,7 @@ export const MAP_STYLES: google.maps.MapTypeStyle[] = [
     elementType: "geometry",
     stylers: [
       {
-        color: "#f8f8f3",
+        color: "#ffffff",
       },
     ],
   },
