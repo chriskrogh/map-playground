@@ -4,7 +4,6 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build:kml": "ts-node src/buildKml/run.ts",
     "build:json": "ts-node src/formatGeoJson/run.ts"
   },
   "devDependencies": {

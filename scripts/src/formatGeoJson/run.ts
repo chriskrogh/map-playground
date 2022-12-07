@@ -20,4 +20,6 @@ const continent = _continent as Continent;
 const data =
   continent === "NAM" ? buildNorthAmericaRegionInfo() : buildEuropeRegionInfo();
 
-writeFileSync(`build/${continent}.json`, JSON.stringify(data, null, 2));
+const fileName = continent === "NAM" ? "NORTH_AMERICA" : "EUROPE";
+
+writeFileSync(`build/${fileName}.json`, JSON.stringify(data, null, 2));
