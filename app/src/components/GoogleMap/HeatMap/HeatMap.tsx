@@ -5,6 +5,8 @@ import { MAP_STYLES } from "./styles";
 import { Continent, Coordinate, RegionInfo } from "../types";
 import { BASE_MAP_CONFIG, getContinentConfig, getRegionColor } from "./utils";
 import { EUR_RETAILER_COUNTS, NAM_RETAILER_COUNTS } from "./consts";
+import EURRegionInfo from "../../../../res/EUROPE.json";
+import NAMRegionInfo from "../../../../res/NORTH_AMERICA.json";
 
 export class HeatMap {
   private map: google.maps.Map;
@@ -52,13 +54,11 @@ export class HeatMap {
   };
 
   private fetchRegionInfo = async (continent: Continent) => {
-    try {
-      const response = await fetch(
-        `https://storage.googleapis.com/maps-playground-kmls/${continent}.json`
-      );
-      return (await response.json()) as RegionInfo[];
-    } catch (error) {
-      console.error(error);
+    switch (continent) {
+      case "NAM":
+        return NAMRegionInfo as RegionInfo[];
+      case "EUR":
+        return EURRegionInfo as RegionInfo[];
     }
   };
 

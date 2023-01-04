@@ -50,6 +50,8 @@ export const EUR_COUNTRY_CODES = [
   "RSB",
 ];
 
+export const OCEANIA_COUNTRY_CODES = ["AUS", "NZL"];
+
 export const CANADIAN_PROVINCE_NAME_CODE_MAP = {
   Alberta: "CAN_AB",
   "British Columbia": "CAN_BC",

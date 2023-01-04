@@ -7,4 +7,4 @@ export type RegionInfo = {
   polygons: Coordinate[][];
 };
 
-export type Continent = "NAM" | "EUR";
+export type Continent = "NAM" | "EUR" | "OCE";

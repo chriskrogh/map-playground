@@ -7,6 +7,7 @@ import { findMidpoint } from "./utils";
 import {
   CANADIAN_PROVINCE_NAME_CODE_MAP,
   EUR_COUNTRY_CODES,
+  OCEANIA_COUNTRY_CODES,
   US_STATE_NAME_CODE_MAP,
 } from "./regions";
 
@@ -70,6 +71,21 @@ export const buildEuropeRegionInfo = () => {
   return CountriesJson.features
     .filter(({ properties }) =>
       EUR_COUNTRY_CODES.find((code) => code === properties.ISO_A3)
+    )
+    .map(({ properties, geometry }) =>
+      buildRegionInfo(
+        properties.ADMIN,
+        properties.ISO_A3,
+        geometry.coordinates,
+        geometry.type
+      )
+    );
+};
+
+export const buildOceaniaRegionInfo = () => {
+  return CountriesJson.features
+    .filter(({ properties }) =>
+      OCEANIA_COUNTRY_CODES.find((code) => code === properties.ISO_A3)
     )
     .map(({ properties, geometry }) =>
       buildRegionInfo(

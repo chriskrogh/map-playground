@@ -3,6 +3,7 @@ import { Continent } from "./types";
 import {
   buildNorthAmericaRegionInfo,
   buildEuropeRegionInfo,
+  buildOceaniaRegionInfo,
 } from "./formatter";
 
 if (process.argv.length < 3) {
@@ -11,15 +12,24 @@ if (process.argv.length < 3) {
 }
 
 const _continent = process.argv[2];
-if (_continent !== "NAM" && _continent !== "EUR") {
+if (_continent !== "NAM" && _continent !== "EUR" && _continent !== "OCE") {
   console.log(`Unknown continent "${_continent}".`);
   process.exit(1);
 }
 const continent = _continent as Continent;
 
 const data =
-  continent === "NAM" ? buildNorthAmericaRegionInfo() : buildEuropeRegionInfo();
+  continent === "NAM"
+    ? buildNorthAmericaRegionInfo()
+    : continent === "EUR"
+    ? buildEuropeRegionInfo()
+    : buildOceaniaRegionInfo();
 
-const fileName = continent === "NAM" ? "NORTH_AMERICA" : "EUROPE";
+const fileName =
+  continent === "NAM"
+    ? "NORTH_AMERICA"
+    : continent === "EUR"
+    ? "EUROPE"
+    : "OCEANIA";
 
 writeFileSync(`build/${fileName}.json`, JSON.stringify(data, null, 2));
